@@ -1,0 +1,41 @@
+.title{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color : #0d0d0d;
+  margin-bottom: 50px;
+}
+
+.box-white{
+  direction: rtl;
+  text-align: right;
+  padding: 40px;
+  margin-top: 50px;
+}
+
+input:not([type = 'submit']){
+  display: block;
+  width: 100%;
+  padding: .5rem 1rem;
+  border: none;
+  box-shadow: 0 0 3px deepskyblue;
+}
+
+textarea{
+  @extend input;
+  resize: none;
+  height: 150px;
+}
+
+input[type = 'submit']{
+  width: 100%;
+  padding: .5rem 1rem;
+  text-align: center;
+  background-color: #e6ecff;
+  color : #3363ff;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 0 3px #3363ff;
+  cursor: pointer;
+}
+

@@ -1,6 +1,6 @@
 <template>
-	<div id="spinner">
-		<div class="spinner" :style="newStyle"></div>
+	<div class="parent-spinner">
+		<div class="parent-spinner__spinner" :style="newStyle"></div>
 	</div>
 </template>
 
@@ -27,12 +27,12 @@
 </script>
 
 <style scoped lang="scss">
-	#spinner {
+	.parent-spinner {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 
-		.spinner {
+		&__spinner {
 			width: 30px;
 			height: 30px;
 			border-radius: 50%;
@@ -41,14 +41,14 @@
 			animation-timing-function: linear;
 			animation-iteration-count: infinite;
 		}
+	}
 
-		@keyframes a {
-			0% {
-				transform: rotate(0)
-			}
-			100% {
-				transform: rotate(360deg)
-			}
+	@keyframes a {
+		0% {
+			transform: rotate(0)
+		}
+		100% {
+			transform: rotate(360deg)
 		}
 	}
 </style>

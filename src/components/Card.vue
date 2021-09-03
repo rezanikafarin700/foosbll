@@ -55,7 +55,7 @@
 			top : 0;
 		}
 
-		&:hover{
+		&:hover &{
 			z-index: -1;
 
 			&__overlay{

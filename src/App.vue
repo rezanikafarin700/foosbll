@@ -93,7 +93,7 @@
 		scroll-behavior: smooth;
 		/*background-color: linear-gradiant(235deg,#fff 70%,#eeeeee);*/
 		background-color: #eeeeee;
-
+		/*background: #E5E5E5;*/
 	}
 
 	#app {

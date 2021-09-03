@@ -1,6 +1,5 @@
 <template>
 	<div>
-
 		<header-slider-by-button :images="images"/>
 		<div class="start-intro" style="">
 			<div class="wrapper">
@@ -19,12 +18,7 @@
 		</div>
 
 		<div class="wrapper">
-			<div class="space"></div>
-
-
-			<div class="space"></div>
-
-			<div class="parent-items">
+			<div class="parent-items space">
 				<div class="parent-items__parent-logo">
 					<logo/>
 				</div>
@@ -38,8 +32,6 @@
 
 		</div>
 
-
-		<div class="space"></div>
 
 		<div class="background-article" :style="{backgroundImage: `url(images/header/12.jpg)`}">
 			<div class="wrapper">
@@ -105,28 +97,30 @@
 			</div>
 		</div>
 
-		<div class="space"></div>
+		<div class="container-cards">
+			<div class="wrapper">
+				<div class="title-items">آشنایی با محصولات آسیا</div>
+				<div class="space"></div>
+				<div class="cards">
+					<div class="cards__card" v-for="(product,index) in products" :key="index">
+						<card :product="product"/>
+					</div>
+				</div>
 
-		<div class="wrapper">
-			<div class="title-items">آشنایی با محصولات آسیا</div>
-			<div class="space"></div>
-			<div class="cards">
-				<div class="cards__card" v-for="(product,index) in products" :key="index">
-					<card :product="product"/>
+				<div class="spinner" v-if="products.length == 0">
+					<img width="90" height="60" src="../../public/images/gif/spinner.gif">
 				</div>
 			</div>
-			<Spinner v-if="products.length == 0"/>
+		</div>
 
-
-			<div class="space"></div>
-
-			<div class="article">
+		<div class="wrapper">
+			<div class="article space">
 				<div class="article__image" :style="{backgroundImage : `url(images/articles/6.jpg)`}">
-					<div class="ratio"></div>
+					<div class="article__image--ratio"></div>
 				</div>
 				<div class="article__text">
 					<div class="title-items">خاطرات ماندگار</div>
-					<div class="article__text--intro">
+					<div class="article__intro">
 						<p> فوتبال دستی از بازی های نوستالژی و دوست داشتنی تمام افراد دنیا اعم از بانوان و آقایان می
 							باشد که قدر مسلم اغلب ما موفق به کسب تجربه بازی با آن شده ایم. امروزه دنیای فوتبال دستی ها
 							کاملا پیشرفت کرده و می توان در کنار مدل های ساده پیشین با مدل های فوق العاده جذابی نیز از
@@ -142,30 +136,25 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="space"></div>
-
-			<div class="parent-items">
-				<div class="title-items">انواع فوتبال دستی</div>
-				<div class="parent-items__items">
-					<div class="parent-items__item" v-for="(foosball,index) in foosball2" :key="index">
-						<card-intro :product="foosball"/>
-					</div>
-				</div>
-			</div>
-
 		</div>
 
-
-		<div class="space"></div>
-
+		<div class="parent-items space">
+			<div class="parent-items__parent-logo">
+				<logo/>
+			</div>
+			<div class="title-items">انواع فوتبال دستی</div>
+			<div class="parent-items__items">
+				<div class="parent-items__item" v-for="(foosball,index) in foosball2" :key="index">
+					<card-intro :product="foosball"/>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
     import axios from 'axios';
     import Logo from "../components/Logo";
-    import Spinner from "../components/Spinner";
     import CardIntro from "../components/CardIntro";
     import Card from "../components/Card";
     import HeaderSliderByButton from "../components/HeaderSliderByButton";
@@ -176,7 +165,6 @@
 
         components: {
             HeaderSliderByButton,
-            Spinner,
             CardIntro,
             Card,
             Logo,
@@ -366,19 +354,17 @@
 			flex: 1 1 auto;
 			margin-right: 2rem;
 			text-align: right;
+		}
 
-
-			&--intro {
-				p {
-					display: inline-block;
-				}
+		&__intro {
+			p {
+				display: inline-block;
 			}
 		}
 	}
 
 
 	.parent-items {
-		padding: 50px 0;
 		background: #edecec;
 
 		&__parent-logo {
@@ -464,7 +450,7 @@
 	}
 
 	.space {
-		margin-bottom: 80px;
+		padding: 50px 0;
 	}
 
 
@@ -506,6 +492,12 @@
 
 	}
 
+	.container-cards {
+		padding: 50px 0;
+		background: #E5E5E5;
+	}
+
+
 	@media (max-width: 320px) {
 		.wrapper {
 			width: 300px;
@@ -519,7 +511,7 @@
 
 			&__text {
 				width: 100%;
-				margin: 0;
+				margin-top: 50px;
 			}
 		}
 		.parent-items {
@@ -565,7 +557,7 @@
 
 			&__text {
 				width: 100%;
-				margin: 0;
+				margin-top : 50px;
 			}
 		}
 		.parent-items {
@@ -619,7 +611,7 @@
 
 			&__text {
 				width: 100%;
-				margin: 0;
+				margin-top : 50px;
 			}
 		}
 
@@ -660,7 +652,7 @@
 
 			&__text {
 				width: 100%;
-				margin: 0;
+				margin-top : 50px;
 			}
 		}
 		.cards {

@@ -128,7 +128,7 @@
 	}
 
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		.parent {
 			&__items {
 				justify-content: space-around;

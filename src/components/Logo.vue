@@ -24,6 +24,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin: 0 0 15px 0;
 
 		&__line{
 			width: 100%;

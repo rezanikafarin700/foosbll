@@ -105,7 +105,7 @@
 			}
 		}
 		.small-font{
-			padding: 1rem;
+			padding: 1rem 1rem 0 1rem;
 		}
 	}
 
@@ -123,7 +123,7 @@
 			}
 		}
 		.small-font{
-			padding: 1rem;
+			padding: 1rem 1rem 0 1rem;
 		}
 	}
 

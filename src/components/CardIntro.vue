@@ -51,7 +51,7 @@
 
 			&--ratio {
 				content: '';
-				padding-top: 70%;
+				padding-top: 50%;
 				position: relative;
 			}
 		}

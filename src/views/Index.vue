@@ -17,20 +17,21 @@
 			</div>
 		</div>
 
-		<div class="wrapper">
 			<div class="parent-items space">
 				<div class="parent-items__parent-logo">
 					<logo/>
 				</div>
 				<div class="title-items">انواع فوتبال دستی</div>
+				<div class="space"></div>
+		<div class="wrapper">
 				<div class="parent-items__items">
 					<div class="parent-items__item" v-for="(foosball,index) in foosball1" :key="index">
 						<card-intro :product="foosball"/>
 					</div>
 				</div>
+		</div>
 			</div>
 
-		</div>
 
 
 		<div class="background-article" :style="{backgroundImage: `url(images/header/12.jpg)`}">
@@ -143,10 +144,13 @@
 				<logo/>
 			</div>
 			<div class="title-items">انواع فوتبال دستی</div>
+			<div class="space"></div>
+			<div class="wrapper">
 			<div class="parent-items__items">
 				<div class="parent-items__item" v-for="(foosball,index) in foosball2" :key="index">
 					<card-intro :product="foosball"/>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -379,12 +383,11 @@
 			flex-direction: row-reverse;
 			flex-wrap: wrap;
 			background: #edecec;
-			padding: 50px 0;
 		}
 
 		&__item {
-			width: calc(50% - 2rem);
-			margin: 1rem;
+			width: calc(50% - 3rem);
+			margin: 1.5rem;
 			flex: 0 0 auto;
 		}
 
@@ -515,11 +518,8 @@
 			}
 		}
 		.parent-items {
-			&__items {
-			}
-
 			&__item {
-				width: calc(100% - 2rem);
+				width: calc(100% - 3rem);
 				margin-bottom: 2rem;
 			}
 
@@ -562,7 +562,7 @@
 		}
 		.parent-items {
 			&__item {
-				width: calc(100% - 2rem);
+				width: calc(100% - 3rem);
 				margin-bottom: 2rem;
 			}
 

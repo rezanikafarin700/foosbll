@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<div class="parent">
-			<div class="image" :style="{backgroundImage : `url(images/types/${product.image})`}">
-				<div class="ratio"></div>
+			<div class="parent__image" :style="{backgroundImage : `url(images/types/${product.image})`}">
+				<div class="parent__image--ratio"></div>
 			</div>
-			<div class="text">
-				<div class="title">{{ product.title }}</div>
-				<div class="intro"> اندازه : {{ product.text }}</div>
+			<div class="parent__text">
+				<div class="parent__title">{{ product.title }}</div>
+				<div class="parent__intro"> اندازه : {{ product.text }}</div>
 			</div>
 		</div>
 	</div>
@@ -28,40 +28,41 @@
 		box-shadow: 0 0 1px 0 #999999;
 		border-radius: 4px;
 
-		&:hover {
+		&:hover &{
 			cursor: pointer;
 			background-color: #e6ecff;
 
-			.text::before {
+			&__text{
+				background-color: #e6ecff;
+
+			}
+
+			&__text::before {
 				background-color: #e6ecff;
 			}
 
 		}
 
-		.image {
+		&__image {
 			background-position: center;
 			background-size: cover;
 			transition: all 1s;
 			padding : 4rem;
 
-			.ratio {
+			&--ratio {
 				content: '';
 				padding-top: 70%;
 				position: relative;
 			}
 		}
 
-		.text {
+		&__text {
 			direction: rtl;
 			text-align: right;
 			padding: 2rem 1rem;
 			position: relative;
 			min-height: 200px;
 
-
-			&:hover {
-
-			}
 
 			&:before {
 				content: '';
@@ -74,19 +75,20 @@
 				right: 5%;
 			}
 
-			.title {
-				font-weight: bold;
-				font-size: 1.2rem;
-				border-bottom: 3px solid #9DD9C5;
-				display: inline-block;
-			}
-
-			.intro {
-				line-height: 1.4;
-				font-size: 14px;
-				font-weight: 400;
-				margin-top: 1rem;
-			}
 		}
+		&__title {
+			font-weight: bold;
+			font-size: 1.2rem;
+			border-bottom: 3px solid #9DD9C5;
+			display: inline-block;
+		}
+
+		&__intro {
+			line-height: 1.4;
+			font-size: 14px;
+			font-weight: 400;
+			margin-top: 1rem;
+		}
+
 	}
 </style>

@@ -2,11 +2,11 @@
 	<div>
 		<div class="parent">
 
-			<div class="slider" v-for="(image,i) in images" :key="i">
+			<div class="parent__slider" v-for="(image,i) in images" :key="i">
 				<transition name="fade">
-					<div class="slide" v-if="index == i" :style="{backgroundImage : `url(images/header/${image.address})`}">
+					<div class="parent__slide" v-if="index == i" :style="{backgroundImage : `url(images/header/${image.address})`}">
 						<transition name="translate">
-							<div class="texts" v-if="showTexts">
+							<div class="parent__texts" v-if="showTexts">
 								<h1>{{ image.title }}</h1>
 								<p>{{ image.text }}</p>
 							</div>
@@ -16,9 +16,9 @@
 
 
 			</div>
-			<div class="parent-btn" v-if="showBtns">
-				<div class="btn-prev" @click="prev">PREV</div>
-				<div class="btn" @click="scrollBotton">
+			<div class="parent__parent-btn" v-if="showBtns">
+				<div class="parent__btn-prev" @click="prev">PREV</div>
+				<div class="parent__btn" @click="scrollBotton">
 					<svg width="50" height="200" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve"><polygon points="237.339,0 237.339,458.069 99.333,300.928 87.832,311.038 244.996,490 402.168,311.038 390.652,300.928 252.654,458.069 252.654,0 "/>
 						<g></g>
 						<g></g>
@@ -36,7 +36,7 @@
 						<g></g>
 						<g></g></svg>
 				</div>
-				<div class="btn-next" @click="next">NEXT</div>
+				<div class="parent__btn-next" @click="next">NEXT</div>
 			</div>
 		</div>
 
@@ -167,7 +167,7 @@
 		border-bottom: none;
 
 
-		.slider {
+		&__slider {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -175,44 +175,43 @@
 			height: 100%;
 
 
-			.slide {
-				top: 0;
-				left: 0;
+		}
+
+		&__slide {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			transition: all .7s;
+
+			&:before {
+				content: '';
 				width: 100%;
 				height: 100%;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				background-attachment: fixed;
-				transition: all .7s;
-
-				&:before {
-					content: '';
-					width: 100%;
-					height: 100%;
-					background-color: rgba(0, 0, 0, 0.4);
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
-
-
-				.texts {
-					direction: rtl;
-					text-align: justify;
-					padding: 4rem 4rem 0 0;
-					width: 400px;
-					color: #ffffff;
-					user-select: none;
-					font-weight: 100;
-					position: fixed;
-					transition: all .5s;
-				}
-
+				background-color: rgba(0, 0, 0, 0.4);
+				position: absolute;
+				top: 0;
+				left: 0;
 			}
 		}
 
-		.parent-btn {
+		&__texts {
+			direction: rtl;
+			text-align: justify;
+			padding: 4rem 4rem 0 0;
+			width: 400px;
+			color: #ffffff;
+			user-select: none;
+			font-weight: 100;
+			position: fixed;
+			transition: all .5s;
+		}
+
+		&__parent-btn {
 			width: 100px;
 			height: 100%;
 			position: fixed;
@@ -224,29 +223,31 @@
 			align-items: center;
 			padding: 1rem;
 
-			.btn-next {
-				color: #ffffff;
-				transform: rotate(90deg);
-				cursor: pointer;
-				border-bottom: 1px solid #ffffff;
-				font-weight: lighter;
-			}
 
-			.btn-prev {
-				color: #ffffff;
-				transform: rotate(-90deg);
-				cursor: pointer;
-				border-bottom: 1px solid #ffffff;
-				font-weight: lighter;
-			}
+		}
 
-			.btn {
-				cursor: pointer;
+		&__btn-next {
+			color: #ffffff;
+			transform: rotate(90deg);
+			cursor: pointer;
+			border-bottom: 1px solid #ffffff;
+			font-weight: lighter;
+		}
 
-				svg {
-					fill: #f0e1ff;
+		&__btn-prev {
+			color: #ffffff;
+			transform: rotate(-90deg);
+			cursor: pointer;
+			border-bottom: 1px solid #ffffff;
+			font-weight: lighter;
+		}
 
-				}
+		&__btn {
+			cursor: pointer;
+
+			svg {
+				fill: #f0e1ff;
+
 			}
 		}
 	}
@@ -259,20 +260,6 @@
 	.move-enter {
 		transform: translateY(-200px);
 	}
-
-
-	@media (max-width: 425px) {
-		.parent {
-			.slider {
-				.slide {
-					.texts {
-						display: none;
-					}
-				}
-			}
-		}
-	}
-
 
 	.translate-enter {
 		transform: translateY(-100px);
@@ -292,4 +279,12 @@
 		opacity: 0;
 	}
 
+
+	@media (max-width: 425px) {
+		.parent {
+			&__texts {
+				display: none;
+			}
+		}
+	}
 </style>

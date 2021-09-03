@@ -4,8 +4,9 @@
 		<header-slider-by-button :images="images"/>
 		<div class="start-intro" style="">
 			<div class="wrapper">
-				<div class="title dastnevis">ساعاتی خوش با فوتبال دستی</div>
-				<p class="text dastnevis"> فوتبال دستی از بازی های نوستالژی و دوست داشتنی تمام افراد دنیا اعم از بانوان
+				<div class="start-intro__title dastnevis">ساعاتی خوش با فوتبال دستی</div>
+				<p class="start-intro__text dastnevis"> فوتبال دستی از بازی های نوستالژی و دوست داشتنی تمام افراد دنیا
+					اعم از بانوان
 					و
 					آقایان
 					می
@@ -24,12 +25,12 @@
 			<div class="space"></div>
 
 			<div class="parent-items">
-				<div class="parent-logo">
+				<div class="parent-items__parent-logo">
 					<logo/>
 				</div>
 				<div class="title-items">انواع فوتبال دستی</div>
-				<div class="items">
-					<div class="item" v-for="(foosball,index) in foosball1" :key="index">
+				<div class="parent-items__items">
+					<div class="parent-items__item" v-for="(foosball,index) in foosball1" :key="index">
 						<card-intro :product="foosball"/>
 					</div>
 				</div>
@@ -45,8 +46,8 @@
 				<div class="space"></div>
 				<div class="title-items" style="color : #ffffff">نکات مهم هنگام خرید فوتبال دستی</div>
 				<div class="space"></div>
-				<div class="pages">
-					<div class="page">
+				<div class="background-article__pages">
+					<div class="background-article__page">
 						<p><span class="bold">نوع محصول:</span> مثل همیشه اولین نکته ای که هنگام خرید فوتبال دستی باید
 							به آن توجه کنید، نوع آن است. میزهای فوتبال دستی امروزه دارای انواع و اقسام مدل های نشسته،
 							ایستاده و همچنین ژتون خور (مناسب برای باشگاه های ورزشی) می باشد و انتخاب یک کدام از این مدل
@@ -74,7 +75,7 @@
 							آن، شما را از انجام بازی با خود پشیمان خواهد کرد.</p>
 						<div class="page-number">صفحه یک</div>
 					</div>
-					<div class="page">
+					<div class="background-article__page">
 						<p><span class="bold">نوع میله های بازی:</span> توجه به نوع میله های به کار رفته در فوتبال دستی
 							نیز از دیگر نکات مهمی است که باید به آن توجه داشته باشید. برای کسانی که به دنبال انجام
 							فوتبال دستیِ سرعتی هستند، میله های فلزی توخالی مناسب تر است و برای کسانی که به دنبال زدن
@@ -110,23 +111,22 @@
 			<div class="title-items">آشنایی با محصولات آسیا</div>
 			<div class="space"></div>
 			<div class="cards">
-				<div class="card" v-for="(product,index) in products" :key="index">
+				<div class="cards__card" v-for="(product,index) in products" :key="index">
 					<card :product="product"/>
 				</div>
 			</div>
 			<Spinner v-if="products.length == 0"/>
 
 
-
 			<div class="space"></div>
 
 			<div class="article">
-				<div class="image" :style="{backgroundImage : `url(images/articles/6.jpg)`}">
+				<div class="article__image" :style="{backgroundImage : `url(images/articles/6.jpg)`}">
 					<div class="ratio"></div>
 				</div>
-				<div class="text">
+				<div class="article__text">
 					<div class="title-items">خاطرات ماندگار</div>
-					<div class="intro">
+					<div class="article__text--intro">
 						<p> فوتبال دستی از بازی های نوستالژی و دوست داشتنی تمام افراد دنیا اعم از بانوان و آقایان می
 							باشد که قدر مسلم اغلب ما موفق به کسب تجربه بازی با آن شده ایم. امروزه دنیای فوتبال دستی ها
 							کاملا پیشرفت کرده و می توان در کنار مدل های ساده پیشین با مدل های فوق العاده جذابی نیز از
@@ -147,8 +147,8 @@
 
 			<div class="parent-items">
 				<div class="title-items">انواع فوتبال دستی</div>
-				<div class="items">
-					<div class="item" v-for="(foosball,index) in foosball2" :key="index">
+				<div class="parent-items__items">
+					<div class="parent-items__item" v-for="(foosball,index) in foosball2" :key="index">
 						<card-intro :product="foosball"/>
 					</div>
 				</div>
@@ -330,7 +330,7 @@
 
         mounted() {
             const vm = this;
-            axios.get( process.env.VUE_APP_BASE_URL + 'products').then(res => {
+            axios.get(process.env.VUE_APP_BASE_URL + 'products').then(res => {
                 vm.products = res.data;
             })
         }
@@ -348,27 +348,27 @@
 		flex-direction: row-reverse;
 		flex-wrap: wrap;
 
-		.image {
+		&__image {
 			width: 360px;
 			flex: 0 0 auto;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
 
-			.ratio {
+			&--ratio {
 				padding-top: 100%;
 				position: relative;
 			}
 		}
 
-		.text {
+		&__text {
 			width: 50%;
 			flex: 1 1 auto;
 			margin-right: 2rem;
 			text-align: right;
 
 
-			.intro {
+			&--intro {
 				p {
 					display: inline-block;
 				}
@@ -381,29 +381,29 @@
 		padding: 50px 0;
 		background: #edecec;
 
-		.parent-logo {
+		&__parent-logo {
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
 
-		.items {
+		&__items {
 			display: flex;
 			flex-direction: row-reverse;
 			flex-wrap: wrap;
 			background: #edecec;
 			padding: 50px 0;
-
-			.item {
-				width: calc(50% - 2rem);
-				margin: 1rem;
-				flex: 0 0 auto;
-			}
 		}
 
+		&__item {
+			width: calc(50% - 2rem);
+			margin: 1rem;
+			flex: 0 0 auto;
+		}
 
 	}
+
 	.title-items {
 		font-family: "p22-underground", sans-serif;
 		font-size: 20px;
@@ -427,38 +427,38 @@
 		padding-bottom: 4rem;
 
 
-		.pages {
+		&__pages {
 			display: flex;
 			flex-direction: row-reverse;
 			flex-wrap: wrap;
+		}
 
-			.page {
-				width: calc(50% - 2rem);
-				margin: 1rem;
-				border-radius: 4px;
-				background-color: rgba(233, 233, 233, 0.4);
-				padding: 2rem;
-				font-size: 14px;
-				direction: rtl;
-				text-align: justify;
-				position: relative;
-				transition: all 1s;
+		&__page {
+			width: calc(50% - 2rem);
+			margin: 1rem;
+			border-radius: 4px;
+			background-color: rgba(233, 233, 233, 0.4);
+			padding: 2rem;
+			font-size: 14px;
+			direction: rtl;
+			text-align: justify;
+			position: relative;
+			transition: all 1s;
 
-				&:hover {
-					background-color: #eeeeee;
-					transform: scale(1.07);
-				}
+			&:hover {
+				background-color: #eeeeee;
+				transform: scale(1.07);
+			}
 
-				.page-number {
-					font-size: 10px;
-					font-weight: bold;
-					position: absolute;
-					top: 0;
-					left: 0;
-					text-align: center;
-					padding: 1rem;
+			.page-number {
+				font-size: 10px;
+				font-weight: bold;
+				position: absolute;
+				top: 0;
+				left: 0;
+				text-align: center;
+				padding: 1rem;
 
-				}
 			}
 		}
 	}
@@ -474,7 +474,7 @@
 		flex-wrap: wrap;
 		margin: -1rem;
 
-		.card {
+		&__card {
 			width: calc(25% - 2rem);
 			flex: 0 0 auto;
 			margin: 1rem;
@@ -493,12 +493,12 @@
 		position: relative;
 		z-index: 5;
 
-		.title {
+		&__title {
 			font-weight: 700;
 			font-size: 20px;
 		}
 
-		.text {
+		&__text {
 			font-size: 1rem;
 			font-weight: 400;
 		}
@@ -513,43 +513,41 @@
 		.article {
 			padding: 1rem;
 
-			.image {
+			&__image {
 				width: 100%;
 			}
 
-			.text {
+			&__text {
 				width: 100%;
 				margin: 0;
 			}
 		}
 		.parent-items {
-			.items {
-				.item {
-					width: calc(100% - 2rem);
-					margin-bottom: 2rem;
-				}
+			&__items {
 			}
+
+			&__item {
+				width: calc(100% - 2rem);
+				margin-bottom: 2rem;
+			}
+
 		}
 		.cards {
-			.card {
+			&__card {
 				width: calc(100% - 2rem);
 			}
 		}
 
 		.start-intro {
 			padding: 1rem;
+		}
 
-			.child {
+		.background-article {
+			&__page {
+				background-color: rgba(233, 233, 233, 0.8);
 				width: calc(100% - 2rem);
 			}
-		}
-		.background-article {
-			.pages {
-				.page {
-					background-color: rgba(233, 233, 233, 0.8);
-					width: calc(100% - 2rem);
-				}
-			}
+
 		}
 	}
 
@@ -561,55 +559,50 @@
 		.article {
 			padding: 1rem;
 
-			.image {
+			&__image {
 				width: 100%;
 			}
 
-			.text {
+			&__text {
 				width: 100%;
 				margin: 0;
 			}
 		}
 		.parent-items {
-			.items {
-				.item {
-					width: calc(100% - 2rem);
-					margin-bottom: 2rem;
-				}
+			&__item {
+				width: calc(100% - 2rem);
+				margin-bottom: 2rem;
 			}
+
 		}
 		.background-article {
-			.pages {
+			&__pages {
 				justify-content: center;
 				align-items: center;
-
-				.page {
-					width: calc(100% - 2rem);
-					background-color: rgba(233, 233, 233, 0.8);
-				}
 			}
+
+			&__page {
+				width: calc(100% - 2rem);
+				background-color: rgba(233, 233, 233, 0.8);
+			}
+
 		}
 
 		.cards {
-			.card {
+			&__card {
 				width: calc(100% - 2rem);
 			}
 		}
 		.start-intro {
 			padding: 1rem;
-
-			.child {
-				width: calc(100% - 2rem);
-			}
 		}
 
 		.background-article {
-			.pages {
-				.page {
-					background-color: rgba(233, 233, 233, 0.8);
-					width: calc(100% - 2rem);
-				}
+			&__page {
+				background-color: rgba(233, 233, 233, 0.8);
+				width: calc(100% - 2rem);
 			}
+
 		}
 	}
 
@@ -620,38 +613,36 @@
 		.article {
 			padding: 1rem;
 
-			.image {
+			&__image {
 				width: 100%;
 			}
 
-			.text {
+			&__text {
 				width: 100%;
 				margin: 0;
 			}
 		}
 
 		.cards {
-			.card {
+			&__card {
 				width: calc(100% - 2rem);
 			}
 		}
 		.background-article {
-			.pages {
-				.page {
-					background-color: rgba(233, 233, 233, 0.8);
-					width: calc(100% - 2rem);
-				}
+			&__page {
+				background-color: rgba(233, 233, 233, 0.8);
+				width: calc(100% - 2rem);
 			}
+
 		}
 	}
 
 	@media (max-width: 768px) {
 		.background-article {
-			.pages {
-				.page {
-					background-color: rgba(233, 233, 233, 0.8);
-				}
+			&__page {
+				background-color: rgba(233, 233, 233, 0.8);
 			}
+
 		}
 
 	}
@@ -663,26 +654,24 @@
 		.article {
 			padding: 1rem;
 
-			.image {
+			&__image {
 				width: 100%;
 			}
 
-			.text {
+			&__text {
 				width: 100%;
 				margin: 0;
 			}
 		}
 		.cards {
-			.card {
+			&__card {
 				width: calc(50% - 2rem);
 			}
 		}
 		.background-article {
-			.pages {
-				.page {
-					background-color: rgba(233, 233, 233, 0.8);
-					width: calc(100% - 2rem);
-				}
+			&__page {
+				background-color: rgba(233, 233, 233, 0.8);
+				width: calc(100% - 2rem);
 			}
 		}
 	}
@@ -692,7 +681,7 @@
 			width: 700px;
 		}
 		.cards {
-			.card {
+			&__card {
 				width: calc(33.3333% - 2rem);
 			}
 		}
@@ -704,7 +693,7 @@
 			width: 850px;
 		}
 		.cards {
-			.card {
+			&__card {
 				width: calc(33.3333% - 2rem);
 			}
 		}
@@ -716,7 +705,7 @@
 			width: 950px;
 		}
 		.cards {
-			.card {
+			&__card {
 				width: calc(33.3333% - 2rem);
 			}
 		}

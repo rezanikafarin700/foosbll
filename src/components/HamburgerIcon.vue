@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="parent">
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
+			<div class="parent__item"></div>
+			<div class="parent__item"></div>
+			<div class="parent__item"></div>
 		</div>
 	</div>
 </template>
@@ -25,7 +25,7 @@
 		height: 17px;
 
 
-		.item{
+		&__item{
 			width: 100%;
 			height: 3px;
 			border-radius: 4px;

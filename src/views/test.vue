@@ -1,47 +1,118 @@
+<template>
+	<div v-swiper="swiperOption" class=" ml-auto relative swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide img-1">AAAAA
+				<!-- <img src="@/assets/img/slider-img-1.png" alt=""> -->
+			</div>
+			<div class="swiper-slide  img-2">BBBBB
+				<!-- <img src="@/assets/img/slider-img-2.jpg" alt=""> -->
+			</div>
+			<div class="swiper-slide img-3">CCCCC
+				<!-- <img src="@/assets/img/slider-img-3.jpg" alt=""> -->
+			</div>
 
-<!--<template>-->
-<!--	<swiper :pagination='{-->
-<!--  "type": "progressbar"-->
-<!--}' :navigation="true" class="mySwiper">-->
-<!--		<swiper-slide>Slide 1</swiper-slide><swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide><swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide><swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide><swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>-->
-<!--	</swiper>-->
-<!--</template>-->
-<!--<script>-->
-<!--    // Import Swiper Vue.js components-->
-<!--    import { Swiper, SwiperSlide } from 'swiper/vue';-->
+		</div>
+		<div class="swiper-button-prev" slot="button-prev"></div>
+		<div class="swiper-button-next" slot="button-next"></div>
 
-<!--    // Import Swiper styles-->
-<!--    import 'swiper/css';-->
+	</div>
+</template>
 
-<!--    import "swiper/css/pagination"-->
-<!--    import "swiper/css/navigation"-->
+<script>
+    import { directive } from "vue-awesome-swiper";
+    import Swiper, { Autoplay} from 'swiper';
+    Swiper.use([Autoplay]);
+    export default {
+        name: 'HeroSlider',
+        directives: {
+            swiper: directive,
+        },
+        data() {
+            return {
+                swiperOption: {
+                    slidesPerView:1,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    speed:1500,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    breakpoints: {
+                        1024: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                    },
+                },
+            };
+        },
+    }
+</script>
 
-<!--    import './style.css';-->
+<style lang="scss" scoped>
+	.swiper-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin: auto;
+		overflow: hidden;
+	}
 
+	.swiper-wrapper{
+		display: flex;
+		flex-direction: row;
+	}
+	.swiper-slide {
+		width: 80%;
+		min-height: calc(100vw / 2.8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
 
-<!--    // import Swiper core and required modules-->
-<!--    import SwiperCore, {-->
-<!--        Pagination,Navigation-->
-<!--    } from 'swiper';-->
+	}
+	.img-1{
+		background-image: url('../../public/images/articles/1.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	.img-2{
+		background-image: url('../../public/images/articles/2.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	.img-3{
+		background-image: url('../../public/images/articles/3.jpg');
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
 
-<!--    // install Swiper modules-->
-<!--    SwiperCore.use([Pagination,Navigation]);-->
+	@media (max-width:992px) {
+		.img-1 .img-2 .img-3 {
+			background-size: 100% 60%
+		}
 
-
-<!--    export default {-->
-<!--        components: {-->
-<!--            Swiper,-->
-<!--            SwiperSlide,-->
-<!--        },-->
-<!--        data() {-->
-<!--            return {-->
-
-
-<!--            };-->
-<!--        },-->
-<!--        methods: {-->
-
-<!--        }-->
-
-<!--    }-->
-<!--</script>-->
+	}
+</style>

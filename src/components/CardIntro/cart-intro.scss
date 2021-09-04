@@ -7,6 +7,7 @@
     cursor: pointer;
     background-color: #e6ecff;
 
+
     &__text{
       background-color: #e6ecff;
 
@@ -16,6 +17,10 @@
       background-color: #e6ecff;
     }
 
+    &__overlay{
+      opacity: 1;
+      cursor: pointer;
+    }
   }
 
   &__image {
@@ -23,13 +28,50 @@
     background-size: cover;
     transition: all 1s;
     padding : 4rem;
+    position: relative;
 
     &--ratio {
       content: '';
       padding-top: 50%;
       position: relative;
     }
+
   }
+
+  &__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.7);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  &__overlay--text{
+    font-size: 20px;
+    color : #1AA170;
+    margin-bottom: 1rem;
+  }
+
+  &__overlay--image{
+    width: 84px;
+    height: 20px;
+    display: block;
+    transform: rotate(180deg);
+  }
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
 
   &__text {
     direction: rtl;

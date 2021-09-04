@@ -3,6 +3,12 @@
 		<div class="parent">
 			<div class="parent__image" :style="{backgroundImage : `url(images/types/${product.image})`}">
 				<div class="parent__image--ratio"></div>
+				<div class="parent__overlay">
+					<div class="parent__overlay--text dastnevis">ادامه داستان</div>
+					<div class="parent__overlay--image">
+						<img src="../../../public/icons/arrow-green.png">
+					</div>
+				</div>
 			</div>
 			<div class="parent__text">
 				<div class="parent__title">{{ product.title }}</div>
@@ -23,5 +29,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "CartIntro";
+	@import "cart-intro";
 </style>

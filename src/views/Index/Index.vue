@@ -161,7 +161,7 @@
     import Logo from "../../components/Logo";
     import CardIntro from "../../components/CardIntro/index";
     import Card from "../../components/Card/index";
-    import HeaderSliderByButton from "../../components/HeaderSliderByButton";
+    import HeaderSliderByButton from "../../components/HeaderSliderByButton/index";
 
 
     export default {

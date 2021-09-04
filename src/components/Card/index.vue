@@ -22,7 +22,7 @@
 
 <script>
     export default {
-        name: "Card",
+        name: "index",
 
         props: {
             product: Object

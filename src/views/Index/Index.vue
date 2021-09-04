@@ -159,7 +159,7 @@
 <script>
     import axios from 'axios';
     import Logo from "../../components/Logo";
-    import CardIntro from "../../components/CardIntro";
+    import CardIntro from "../../components/CardIntro/index";
     import Card from "../../components/Card/index";
     import HeaderSliderByButton from "../../components/HeaderSliderByButton";
 

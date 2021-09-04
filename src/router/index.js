@@ -19,7 +19,7 @@ const routes = [
             {
                 path: '',
                 name: 'index',
-                component: () => import('../views/Index/Index')
+                component: () => import('../views/Index/index')
             },
             {
                 path: '/show/:id',
@@ -37,7 +37,7 @@ const routes = [
     {
         path: '/admin',
         name: 'admin',
-        component: () => import('../views/Admin'),
+        component: () => import('../views/Admin/index'),
         children: [
             {
                 path: 'create',

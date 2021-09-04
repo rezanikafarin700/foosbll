@@ -19,13 +19,7 @@ const routes = [
             {
                 path: '',
                 name: 'index',
-                component: () => import('../views/Index')
-            },
-
-            {
-                path: '/index1',
-                name: 'index1',
-                component: () => import('../views/Index1')
+                component: () => import('../views/Index/Index')
             },
             {
                 path: '/show/:id',

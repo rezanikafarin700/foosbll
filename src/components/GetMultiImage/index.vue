@@ -27,7 +27,7 @@
 
 <script>
     export default {
-        name: "GetMultiImage",
+        name: "index",
 
         data() {
             return {
@@ -68,124 +68,5 @@
 </script>
 
 <style scoped lang="scss">
-
-	.get-multi-image {
-		$br: 2px;
-		margin-top: .5rem;
-
-		&__multi-image {
-			display: flex;
-			flex-wrap: wrap;
-			margin: -5px;
-		}
-		&__con-input {
-			width: calc(25% - 10px);
-			margin: 5px;
-			flex: 0 0 auto;
-			border: 1px dashed #999999;
-			border-radius: $br;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			&--ratio {
-				position: relative;
-				padding-top: 100%;
-			}
-
-		}
-		&__btn-input {
-			width: 2em;
-			height: 2em;
-
-			svg {
-				fill: #999999;
-			}
-		}
-
-		&__input {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			cursor: pointer;
-
-		}
-		&__image {
-			width: calc(25% - 10px);
-			margin: 5px;
-			flex: 0 0 auto;
-			background-size: cover;
-			background-position: center;
-			position: relative;
-			cursor: pointer;
-			border-radius: $br;
-
-			&--ratio {
-				position: relative;
-				padding-top: 100%;
-			}
-
-
-		}
-		&__overlay {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			background-color: rgba(0, 0, 0, .4);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			opacity: 0;
-			transition: all .5s;
-			border-radius: $br;
-
-			&:hover {
-				opacity: 1;
-			}
-
-		}
-		&__del-btn {
-			width: 40px;
-			height: 40px;
-			background-position: center;
-			background-size: cover;
-			background-image: url("/icons/delete-icon.png");
-		}
-
-
-
-	}
-
-	@media (max-width: 425px) {
-		#get-multi-image {
-			.multi-image {
-				.con-input {
-					width: calc(33.3333% - 10px);
-				}
-				.image {
-					width: calc(33.3333% - 10px);
-				}
-			}
-		}
-	}
-
-	@media (max-width: 320px) {
-		#get-multi-image {
-			.multi-image {
-				.con-input {
-					width: calc(50% - 10px);
-				}
-				.image {
-					width: calc(50% - 10px);
-				}
-			}
-		}
-	}
-
+	@import "get-multi-image";
 </style>

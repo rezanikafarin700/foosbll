@@ -40,7 +40,7 @@
 
 <script>
     import axios from 'axios';
-    import GetMultiImage from "../components/GetMultiImage";
+    import GetMultiImage from "../components/GetMultiImage/index";
 
     export default {
         name: "Create",

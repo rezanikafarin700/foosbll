@@ -160,7 +160,7 @@
     import axios from 'axios';
     import Logo from "../../components/Logo";
     import CardIntro from "../../components/CardIntro";
-    import Card from "../../components/Card";
+    import Card from "../../components/Card/index";
     import HeaderSliderByButton from "../../components/HeaderSliderByButton";
 
 

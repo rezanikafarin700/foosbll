@@ -2,13 +2,21 @@
 	<div>
 		<div class="wrapper-register">
 			<div class="box-white">
+				{{ errors }}
 				<div class="title">ورود و ثبت نام</div>
+				<div class="space-items"></div>
 				<form>
-					<input autocomplete="on" type="text" placeholder="امیل را وارد کنید" v-model="data.email">
-					<br>
-					<input type="password" placeholder="پسورد را وارد کنید" v-model="data.password">
-					<br>
-					<input type="submit" value="ارسال" @click="send">
+					<div class="field">
+						<label class="field__label" for="email">ایمیل</label>
+						<input class="field__input" id="email" autocomplete="on" type="text" placeholder="امیل را وارد کنید" v-model="data.email">
+						<small class="field__error" v-if="errors && errors.email">{{ errors.email[0] }}</small>
+					</div>
+					<div class="field">
+						<label class="field__label" for="password">پسورد</label>
+						<input class="field__input" id="password" type="password" placeholder="پسورد را وارد کنید" v-model="data.password">
+						<small class="field__error" v-if="errors && errors.password">{{ errors.password[0] }}</small>
+					</div>
+					<input class="field__submit" type="submit" value="ارسال" @click.prevent="send">
 				</form>
 			</div>
 		</div>
@@ -23,8 +31,9 @@
 
         data() {
             return {
-                data: {},
-                admin: {}
+                data: {email: "", data: ""},
+                admin: {},
+                errors: {}
             }
         },
 
@@ -38,8 +47,7 @@
                 axios({
                     method: 'post',
                     data: fd,
-                    // url: process.env.VUE_APP_BASE_URL + 'users',
-                    url: 'http://localhost/Asia/public/api/' + 'users',
+                    url: process.env.VUE_APP_BASE_URL + 'users',
 
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -47,7 +55,11 @@
 
                 }).then(res => {
                     vm.admin = res.data;
-                })
+                    // vm.$router.push({name : 'index'})
+                }).catch(err => {
+                    console.log(err.response.data, 'err')
+                    vm.errors = err.response.data.errors;
+                });
             }
         }
     }

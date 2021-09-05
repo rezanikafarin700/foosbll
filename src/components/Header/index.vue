@@ -7,7 +7,7 @@
 						<div class="parent__item">
 							<hamburger-icon/>
 							<span style="margin: 0 0 0 2rem"></span>
-							<div class="dastnevis parent__text">ورود و ثبت نام</div>
+							<div class="dastnevis parent__text" @click="goToLogin">ورود و ثبت نام</div>
 						</div>
 						<div class="parent__item">
 							<div class="dastnevis parent__line-bottom">فوتبال دستی آسیا</div>
@@ -73,6 +73,10 @@
         methods: {
             move() {
                 document.documentElement.scrollTop = 3900;
+            },
+
+            goToLogin(){
+                this.$router.push({name : 'login'})
             }
         }
     }

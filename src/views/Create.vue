@@ -3,35 +3,60 @@
 		<div class="wrapper-register">
 			<div class="box-white">
 				<div class="title">افزودن محصول جدید</div>
+				<div class="space-items"></div>
 				<form method="post">
 					<label class="add-image">افزودن عکس بازدید محصول را تا سه برابر افزایش میدهد</label>
-					<get-multi-image  v-model="product.images"/>
+					<get-multi-image v-model="product.images"/>
 					<br>
-					<label for="name">نام محصول</label>
-					<input type="text" id="name" name="name" placeholder="مثلا فوتبال دستی آسیا" v-model="product.name"><br>
+					<div class="field">
+						<label class="field__label" for="name">نام محصول</label>
+						<input class="field__input" type="text" id="name" name="name" placeholder="مثلا فوتبال دستی آسیا" v-model="product.name">
+						<small class="field__error" v-if="errors && errors.name">{{ errors.name[0]}}</small>
+					</div>
 
-					<label for="model">مدل</label>
-					<input type="text" id="model" name="model" placeholder="مثلا تاشو" v-model="product.model"><br>
+					<div class="field">
+						<label class="field__label" for="model">مدل</label>
+						<input class="field__input" type="text" id="model" name="model" placeholder="مثلا تاشو" v-model="product.model">
+						<small class="field__error" v-if="errors && errors.model">{{ errors.model[0]}}</small>
+					</div>
 
-					<label for="size">اندازه</label>
-					<input type="text" id="size" name="size" placeholder="مثلا 75 * 120" v-model="product.size"><br>
+					<div class="field">
+						<label class="field__label" for="size">اندازه</label>
+						<input class="field__input" type="text" id="size" name="size" placeholder="مثلا 75 * 120" v-model="product.size"><br>
+						<small class="field__error" v-if="errors && errors.size">{{ errors.size[0]}}</small>
+					</div>
 
-					<label for="price">قیمت</label>
-					<input type="text" id="price" name="price" placeholder="200000" v-model="product.price"><br>
+					<div class="field">
+						<label class="field__label" for="price">قیمت</label>
+						<input class="field__input" type="text" id="price" name="price" placeholder="200000" v-model="product.price">
+						<small class="field__error" v-if="errors && errors.price">{{ errors.price[0]}}</small>
+					</div>
 
-					<label for="discount">تخفیف</label>
-					<input type="text" id="discount" name="discount" placeholder="مثلا 10" v-model="product.discount"><br>
+					<div class="field">
+						<label class="field__label" for="discount">تخفیف</label>
+						<input class="field__input" type="text" id="discount" name="discount" placeholder="مثلا 10" v-model="product.discount">
+						<small class="field__error" v-if="errors && errors.discount">{{ errors.discount[0] }}</small>
+					</div>
 
-					<label for="code">کد محصول</label>
-					<input type="text" id="code" name="code" placeholder="مثلا 100" v-model="product.code"><br>
+					<div class="field">
+						<label class="field__label" for="code">کد محصول</label>
+						<input class="field__input" type="text" id="code" name="code" placeholder="مثلا 100" v-model="product.code"><br>
+						<small class="field__error" v-if="errors && errors.code">{{ errors.code[0]}}</small>
+					</div>
 
-					<label for="material">جنس محصول</label>
-					<input type="text" id="material" name="material" placeholder="مثلا MDF" v-model="product.material"><br>
+					<div class="field">
+						<label class="field__label" for="material">جنس محصول</label>
+						<input class="field__input" type="text" id="material" name="material" placeholder="مثلا MDF" v-model="product.material"><br>
+						<small class="field__error" v-if="errors && errors.material">{{ errors.material[0] }}</small>
+					</div>
 
-					<label for="description">توضیحات</label>
-					<textarea name="description" id="description" placeholder="توضیحات" v-model="product.description"></textarea><br>
+					<div class="field">
+						<label for="description">توضیحات</label>
+						<textarea  name="description" id="description" placeholder="توضیحات" v-model="product.description"></textarea>
+						<small class="field__error" v-if="errors && errors.description">{{ errors.description }}</small>
+					</div>
 
-					<input type="submit" value="ارسال" @click.prevent="send">
+					<input class="field__submit" type="submit" value="ارسال" @click.prevent="send">
 				</form>
 			</div>
 		</div>
@@ -51,7 +76,14 @@
 
         data() {
             return {
-                product: {},
+                product: {
+                    name: "", model: "", size: "", price: "", discount: "",
+                    code: null, material: "", description: "", images: []
+
+                },
+
+
+                errors: {}
             }
         },
 
@@ -73,20 +105,19 @@
                 console.log(fd)
                 axios({
                     method: 'post',
-                    url: process.env.VUE_APP_BASE_URL +'products',
+                    url: process.env.VUE_APP_BASE_URL + 'products',
                     data: fd,
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
                 }).then(res => {
-                    vm.errors = res.data.errors;
+                    console.log(res, 'res')
                     vm.$router.push({name: 'index'});
                 }).catch(err => {
-                    // window.console.log(err.response.data.errors.name);
+                    console.log(err.response.data, 'err')
                     vm.errors = err.response.data.errors;
                     vm.showSave = false;
                 });
-                vm.$router.push({name: 'index'});
 
             }
         }
@@ -96,13 +127,19 @@
 <style scoped lang="scss">
 	@import "box-white";
 
-	@media (max-width: 425px) and (min-height: 320px){
-		.add-image{
+	.add-image{
+		font-size: 12px;
+		font-weight: 400;
+	}
+
+	@media (max-width: 425px) and (min-height: 320px) {
+		.add-image {
 			font-size: 12px;
 		}
 	}
+
 	@media (max-width: 320px) {
-		.add-image{
+		.add-image {
 			font-size: 10px;
 		}
 	}

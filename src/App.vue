@@ -121,4 +121,9 @@
 		margin: 0 auto;
 	}
 
+	.space {
+		padding: 50px 0;
+	}
+
+
 </style>

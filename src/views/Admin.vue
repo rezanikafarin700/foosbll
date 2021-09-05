@@ -24,7 +24,7 @@
 	.header {
 		background-color: dodgerblue;
 		color: #F8F8F8;
-		min-height: 120px;
+		min-height: 50px;
 		position: sticky;
 		top: 0;
 

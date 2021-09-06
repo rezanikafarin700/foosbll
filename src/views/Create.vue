@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<div class="wrapper-register">
+		<div class="wrapper-register"> {{ product.images }}
 			<div class="box-white">
 				<div class="title">افزودن محصول جدید</div>
 				<div class="space-items"></div>
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					<label class="add-image">افزودن عکس بازدید محصول را تا سه برابر افزایش میدهد</label>
 					<get-multi-image v-model="product.images"/>
 					<br>
@@ -52,7 +52,7 @@
 
 					<div class="field">
 						<label for="description">توضیحات</label>
-						<textarea  name="description" id="description" placeholder="توضیحات" v-model="product.description"></textarea>
+						<textarea name="description" id="description" placeholder="توضیحات" v-model="product.description"></textarea>
 						<small class="field__error" v-if="errors && errors.description">{{ errors.description }}</small>
 					</div>
 
@@ -78,7 +78,8 @@
             return {
                 product: {
                     name: "", model: "", size: "", price: "", discount: "",
-                    code: null, material: "", description: "", images: []
+                    code: null, material: "", description: "",
+                    images: []
 
                 },
 
@@ -102,7 +103,7 @@
                 for (let i = 0; i < vm.product.images.length; i++) {
                     fd.append('images[' + i + ']', vm.product.images[i]);
                 }
-                console.log(fd)
+                console.log(fd, 'fd')
                 axios({
                     method: 'post',
                     url: process.env.VUE_APP_BASE_URL + 'products',
@@ -127,7 +128,7 @@
 <style scoped lang="scss">
 	@import "box-white";
 
-	.add-image{
+	.add-image {
 		font-size: 12px;
 		font-weight: 400;
 	}

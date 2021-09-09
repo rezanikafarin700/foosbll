@@ -1,118 +1,177 @@
 <template>
-	<div v-swiper="swiperOption" class=" ml-auto relative swiper-container">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide img-1">AAAAA
-				<!-- <img src="@/assets/img/slider-img-1.png" alt=""> -->
-			</div>
-			<div class="swiper-slide  img-2">BBBBB
-				<!-- <img src="@/assets/img/slider-img-2.jpg" alt=""> -->
-			</div>
-			<div class="swiper-slide img-3">CCCCC
-				<!-- <img src="@/assets/img/slider-img-3.jpg" alt=""> -->
-			</div>
+  <div>
+    <div class="head">
+      <div>{{ position }}</div>
+    </div>
+    <br />
+    <hr />
 
-		</div>
-		<div class="swiper-button-prev" slot="button-prev"></div>
-		<div class="swiper-button-next" slot="button-next"></div>
+    <div class="scroll-bar">
+      <div v-for="(subject, index) in subjects" :key="index">
+        <div @click="goToTitle(index)" :class="{ active: indexSubject == index }">
+          {{ subject.title }}
+        </div>
+      </div>
+    </div>
 
-	</div>
+    <div class="wrapper">
+      <div v-for="(subject, index) in subjects" :key="index">
+        <div class="item">
+          <div class="item__title" :class="{active : index == indexSubject }">{{ subject.title }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+          <div class="item__text">{{ subject.text }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-    import { directive } from "vue-awesome-swiper";
-    import Swiper, { Autoplay} from 'swiper';
-    Swiper.use([Autoplay]);
-    export default {
-        name: 'HeroSlider',
-        directives: {
-            swiper: directive,
+export default {
+  name: "test",
+  data() {
+    return {
+      subjects: [
+        {
+          title: "Ali",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [0, 1800],
         },
-        data() {
-            return {
-                swiperOption: {
-                    slidesPerView:1,
-                    spaceBetween: 0,
-                    slidesPerGroup: 1,
-                    speed:1500,
-                    loop: true,
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false
-                    },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    breakpoints: {
-                        1024: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        768: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        640: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                    },
-                },
-            };
+        {
+          title: "Reza",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [1801, 3600],
         },
+        {
+          title: "Hasan",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [3601, 5400],
+        },
+        {
+          title: "Arman",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [5401, 7200],
+        },
+        {
+          title: "Mohammad",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [7201, 9000],
+        },
+        {
+          title: "Mahdi",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [9001, 10800],
+        },
+        {
+          title: "Hammed",
+          text:
+            "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+          position: [10801, 11900],
+        },
+      ],
+
+      position: 0,
+
+      indexSubject: 0,
+    };
+  },
+   
+  methods: {
+    goToTitle(index){
+      document.documentElement.scrollTop = this.subjects[index].position[0] + 1;
+
     }
+  },
+
+  mounted() {
+    const vm = this;
+    window.onscroll = function() {
+      vm.position = document.documentElement.scrollTop;
+      // for (let i = 0; i < vm.subjects.length; i++) {
+      //     if (document.documentElement.scrollTop > vm.subjects[i].position[0] && document.documentElement.scrollTop < vm.subjects[i].position[1]) {
+      //         vm.indexSubject = i;
+      //     }
+      // }
+
+      let i = 0;
+      vm.subjects.find((subject) => {
+        if (
+          document.documentElement.scrollTop > subject.position[0] &&
+          document.documentElement.scrollTop < subject.position[1]
+        ) {
+          vm.indexSubject = i;
+
+        }
+		else { 
+			i ++;
+		}
+      });
+    };
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-	.swiper-container {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		margin: auto;
-		overflow: hidden;
-	}
+<style scoped lang="scss">
+.head {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background: #2c3e50;
+  color: #ffffff;
+}
 
-	.swiper-wrapper{
-		display: flex;
-		flex-direction: row;
-	}
-	.swiper-slide {
-		width: 80%;
-		min-height: calc(100vw / 2.8);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: #fff;
+.item {
+  &__title {
+    font-weight: bold;
+    font-size: 3rem;
+    margin: 50px 0;
+    transition: all 1s;
+  }
 
-	}
-	.img-1{
-		background-image: url('../../public/images/articles/1.jpg');
-		background-repeat: no-repeat;
-		background-size: 100%;
-	}
-	.img-2{
-		background-image: url('../../public/images/articles/2.jpg');
-		background-repeat: no-repeat;
-		background-size: 100%;
-	}
-	.img-3{
-		background-image: url('../../public/images/articles/3.jpg');
-		background-repeat: no-repeat;
-		background-size: 100%;
-	}
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 1s;
+  }
+}
 
-	@media (max-width:992px) {
-		.img-1 .img-2 .img-3 {
-			background-size: 100% 60%
-		}
+.scroll-bar {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  padding: 1rem;
+  background-color: #2c3e50;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+}
 
-	}
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.active {
+  color: #00d700;
+}
+
+.active-text {
+  transform: scale(1.3);
+  font-weight: bold;
+}
 </style>

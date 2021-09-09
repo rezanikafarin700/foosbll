@@ -10,6 +10,26 @@ const routes = [
         name: 'login',
         component: () => import('../views/Login')
     },
+    {
+        path: '/test-swiper',
+        name: 'test-swiper',
+        component: () => import('../views/testSwiper')
+    },
+    {
+        path: '/test-paginate',
+        name: 'test-paginate',
+        component: () => import('../views/testPaginate')
+    },
+    {
+        path: '/test-slider',
+        name: 'test-slider',
+        component: () => import('../views/TestSlider')
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: () => import('../views/test')
+    },
 
     {
         path: '/',
@@ -26,11 +46,6 @@ const routes = [
                 name: 'show',
                 component: () => import('../views/Show')
             },
-            {
-                path: '/test',
-                name: 'test',
-                component: () => import('../views/test')
-            }
         ]
 
     },

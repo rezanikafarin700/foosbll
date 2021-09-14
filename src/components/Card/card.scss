@@ -2,7 +2,7 @@ $color-title: #0d0d0d;
 $color-text: #404040;
 
 $color-btn-text: #3363ff;
-$color-btn-background: #e6ecff;
+$color-btn-background: rgb(221, 226, 240);
 
 $border-card : 4px;
 .card {
@@ -14,7 +14,7 @@ $border-card : 4px;
   &__overlay{
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(221, 226, 240,0.4);
     transition: all .5s;
     opacity: 0;
     position: absolute;
@@ -51,20 +51,21 @@ $border-card : 4px;
     transition: all .2s;
     background-color: #fff;
 
+
   }
   &__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     color: $color-title;
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
   }
 
   &__text {
     font-size: 14px;
     letter-spacing: .1rem;
-    line-height: 1.1;
+    line-height: 1.4;
     color: darken($color-text, 1%);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   &__btn-card {

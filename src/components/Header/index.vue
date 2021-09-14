@@ -10,7 +10,7 @@
 							<div class="dastnevis parent__text" @click="goToLogin">ورود و ثبت نام</div>
 						</div>
 						<div class="parent__item">
-							<div class="dastnevis parent__line-bottom">فوتبال دستی آسیا</div>
+							<div class="dastnevis parent__line-bottom">فوتبال دستی تاج اسپرت</div>
 						</div>
 						<div class="parent__item">
 							<svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="18px" height="18px">

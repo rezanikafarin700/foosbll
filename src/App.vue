@@ -121,4 +121,9 @@
 		margin: 0 auto;
 	}
 
+	.rtl{
+		direction: rtl;
+		text-align: right;
+	}
+
 </style>
